@@ -1,21 +1,44 @@
 let playerScore = 0;
 let computerScore = 0;
 let result = "";
-
+let playerChoice ='';
+let buttonClicks = 0;
 
  function getComputerChoice(){
     let action = ['rock', 'paper', 'scissors'];
     return action[Math.floor(Math.random() * 3 )];
  }
+ 
  function getPlayerChoice(){
-   let playerChoice = prompt(result + "Enter your choice");
    return playerChoice;
+}
+function  buttonClickHandler(){
+   buttonClicks++;
+}
+
+function rock(){
+  playerChoice = 'rock';
+  buttonClickHandler();
+  if(buttonClicks <= 5){ Game();}
+  else {res();}
+}
+function paper(){
+   playerChoice =  'paper';
+   buttonClickHandler();
+   if(buttonClicks <= 5){ Game();}
+   else {res();}
+}
+function scissors(){
+   playerChoice = 'scissors';
+   buttonClickHandler();
+   if(buttonClicks <= 5){ Game();}
+   else {res();}
 }
 
  function playRound(playerSelection, computerSelection) {
-    if( playerSelection=='paper' && computerSelection.toLowerCase() =='Rock'
-        || playerSelection=='scissors' && computerSelection.toLowerCase() =='paper'
-        || playerSelection =='Rock' && computerSelection.toLowerCase() =='Rock' ){
+    if( playerSelection.toLowerCase()=='paper' && computerSelection.toLowerCase() =='Rock'
+        || playerSelection.toLowerCase()=='scissors' && computerSelection.toLowerCase() =='paper'
+        || playerSelection.toLowerCase() =='rock' && computerSelection.toLowerCase() =='Rock' ){
          playerScore++;
         return "You Won! " + playerSelection + " beats " +  computerSelection;
        
@@ -30,29 +53,7 @@ let result = "";
    
     
   }
- function Game(){
-   let round = 1;
-  
-   while(round <= 5){
-
-     let playerSelection = getPlayerChoice() ;  
-     let computerSelection = getComputerChoice();
-     let roundResult = playRound(playerSelection, computerSelection);
-     console.log(playerSelection,computerSelection);
-     
-     result =  " your score : " + playerScore + " computer score : " + computerScore ;
-     result += "<br></br>";
-     result += roundResult   ; 
-     result += "<br></br>";
-      
-      
-     
-      document.getElementById('result').innerHTML = result;
-
-
-      round++;
-
-   }
+  function res(){
    result =  " your score : " + playerScore + " computer score : " + computerScore ;
    result += "<br></br>";
    
@@ -68,8 +69,28 @@ let result = "";
    else {
       
       Finalresult = "you Lose! reload this page to play again";
+
    }
+   document.getElementById('Finalresult').innerHTML = Finalresult;
+}
+ function Game(){
+  
+   
+     let playerSelection = getPlayerChoice() ;  
+     let computerSelection = getComputerChoice();
+     let roundResult = playRound(playerSelection, computerSelection);
+     console.log(playerSelection,computerSelection);
+     
+     result =  " your score : " + playerScore + " computer score : " + computerScore ;
+     result += "<br></br>";
+     result += roundResult   ; 
+     result += "<br></br>";
+      
+      
+      document.getElementById('result').innerHTML = result;  
+    
  }
+
  
-Game();
-document.getElementById('result').innerHTML = result + Finalresult;
+
+
