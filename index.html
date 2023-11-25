@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Document</title>
     
@@ -8,14 +9,22 @@
 </head>
 <body>
     <center><h1>This is a rock paper scissors game choose your move and try to beat the computer!!😉</h1></center>
-    <div style = "margin-bottom: 20px;">
-        <input  type="button" value="rock" ></input>
-        <input  type="button"value="paper" ></input>
-        <input  type="button" value="scissors"></input>
+    <center>
+    <div style = "margin-bottom: 20px;" >
+        <input  type="button" value="rock" onclick="rock()" class="myButton"></a></input>
+        <input  type="button"value="paper" onclick="paper()" class="myButton" ></input>
+        <input  type="button" value="scissors" onclick="scissors()"  class="myButton" ></input>
     </div>
+    </center>
         <br><br><br><br><br><br><br><br><br><br><br>
-    <div id="result">
+    
+    <div  >
+        <p id="result"></p>
         <script src="Game.js"></script>
     </div>
+
+    <div id="Finalresult">
+    </div>
+
 </body>
 </html>
